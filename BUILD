@@ -17,11 +17,12 @@ genrule(
 
 void *workload(void *thing) {
   union {
-    void* v;
-    long l;
+    void* vp;
+    long* lp;
   } u;
-  u.v = thing;
-  u.l = 4321;
+  u.vp = thing;
+
+  *(u.lp) = 4321;
 
   return thing;
 }
